@@ -1,15 +1,18 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const userRoutes = require('./routes/userRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const courseRoutes = require('./routes/courseRoutes');
+const enrollmentRoutes = require('./routes/enrollmentRoutes');
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-// Routes
-app.use('/api', userRoutes);
+app.use('/api', studentRoutes);
+app.use('/api', courseRoutes);
+app.use('/api', enrollmentRoutes);
 
 const PORT = 5000;
 app.listen(PORT, () => {
